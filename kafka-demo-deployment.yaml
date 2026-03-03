@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafka-demo-app
+  labels:
+    app: kafka-demo-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kafka-demo-app
+  template:
+    metadata:
+      labels:
+        app: kafka-demo-app
+    spec:
+      containers:
+      - name: app
+        image: kafka-demo-app:latest   # your built image
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: KAFKA_BOOTSTRAP_SERVERS
+          value: "your-kafka-service:9092"   # if Kafka is inside K8s; otherwise use external IP
+        # If you want to run both producer and consumer in one pod, use command args or env vars
+        command: ["python", "main.py"]
+        # Or run consumer continuously:
+        # command: ["python", "-c", "from main import consume_message; consume_message()"]
