@@ -28,15 +28,16 @@ A simple Python application demonstrating Apache Kafka integration with a produc
 
 ```
 .
-†€€ app/
-   „€€ main.py                    # Producer + consumer logic
-†€€ tests/
-   „€€ unit/                      # Unit tests
-†€€ .gitlab-ci.yml                 # GitLab CI/CD pipeline
-†€€ docker-compose.yml             # Kafka + Zookeeper services
-†€€ Dockerfile                     # App container image
-†€€ kafka-demo-deployment.yaml     # Kubernetes StatefulSet for Kafka
-„€€ README.md
+â”œâ”€â”€ app/
+â”‚   â””â”€â”€ main.py                    # Producer + consumer logic
+â”œâ”€â”€ tests/
+â”‚   â””â”€â”€ unit/                      # Unit tests
+â”œâ”€â”€ .gitlab-ci.yml                 # GitLab CI/CD pipeline
+â”œâ”€â”€ docker-compose.yml             # Kafka + Zookeeper services
+â”œâ”€â”€ Dockerfile                     # App container image
+â”œâ”€â”€ kafka-demo-deployment.yaml     # Kubernetes StatefulSet for Kafka
+â””â”€â”€ README.md
+```
 ```
 
 ---
