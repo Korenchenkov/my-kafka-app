@@ -13,7 +13,7 @@ build:
   services:
     - docker:dind
   script:
-    - echo "Сборка Docker-образа..."
+    - echo "п║п╠п╬я─п╨п╟ Docker-п╬п╠я─п╟п╥п╟..."
     - docker build -t $DOCKER_IMAGE:$DOCKER_TAG .
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker push $DOCKER_IMAGE:$DOCKER_TAG
@@ -37,14 +37,14 @@ integration_tests:
   services:
     - docker:dind
   before_script:
-    # Установка docker-compose внутри контейнера (если не установлен)
+    # пёя│я┌п╟п╫п╬п╡п╨п╟ docker-compose п╡п╫я┐я┌я─п╦ п╨п╬п╫я┌п╣п╧п╫п╣я─п╟ (п╣я│п╩п╦ п╫п╣ я┐я│я┌п╟п╫п╬п╡п╩п╣п╫)
     - apk add --no-cache docker-compose
-    # Поднимаем Kafka и ZooKeeper с помощью docker-compose
+    # п÷п╬п╢п╫п╦п╪п╟п╣п╪ Kafka п╦ ZooKeeper я│ п©п╬п╪п╬я┴я▄я▌ docker-compose
     - docker-compose up -d
-    # Ожидаем инициализации сервисов (можно заменить на скрипт wait-for-it)
+    # п·п╤п╦п╢п╟п╣п╪ п╦п╫п╦я├п╦п╟п╩п╦п╥п╟я├п╦п╦ я│п╣я─п╡п╦я│п╬п╡ (п╪п╬п╤п╫п╬ п╥п╟п╪п╣п╫п╦я┌я▄ п╫п╟ я│п╨я─п╦п©я┌ wait-for-it)
     - sleep 15
   script:
-    - echo "Запуск интеграционных тестов..."
+    - echo "п≈п╟п©я┐я│п╨ п╦п╫я┌п╣пЁя─п╟я├п╦п╬п╫п╫я▀я┘ я┌п╣я│я┌п╬п╡..."
     - pip install --no-cache-dir -r requirements.txt
     - pytest tests/integration
   only:
@@ -55,7 +55,7 @@ deploy:
   stage: deploy
   image: docker:latest
   script:
-    - echo "Деплой в тестовую/продакшн среду..."
+    - echo "п■п╣п©п╩п╬п╧ п╡ я┌п╣я│я┌п╬п╡я┐я▌/п©я─п╬п╢п╟п╨я┬п╫ я│я─п╣п╢я┐..."
     - ./deploy_script.sh $DOCKER_IMAGE:$DOCKER_TAG
   only:
     - master

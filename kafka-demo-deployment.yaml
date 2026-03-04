@@ -17,5 +17,5 @@ spec:
       containers:
       - name: kafka-demo-app
         image: kafka-demo-app:latest 
-        ports: IfNotPresent
-        -containerPort: 80
+        ports: 
+        - containerPort: 80
